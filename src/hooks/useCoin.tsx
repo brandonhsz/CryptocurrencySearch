@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
+interface Icoins {
+  name: string;
+  symbol: string;
+}
+
 const useCoin = () => {
-  const [coins, setCoins] = useState([{ name: "nada", symbol: "nada" }]);
+  const [coins, setCoins] = useState<Icoins[]>([]);
   const [search, setSearch] = useState("");
 
   const coinsFiltered = coins.filter(
     (c) =>
-      c.name.toLocaleLowerCase().includes(search) ||
-      c.symbol.toLocaleLowerCase().includes(search)
+      c.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
+      c.symbol.toLocaleLowerCase().includes(search.toLocaleLowerCase())
   );
   const apiRequest = async () => {
     const req = await axios.get(

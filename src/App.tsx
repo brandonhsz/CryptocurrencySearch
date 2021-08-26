@@ -9,19 +9,25 @@ function App() {
   return (
     <div className="container">
 
+
       <input 
         type="text" 
         placeholder="Search"
         className="form-control bg-dark text-center border-0 p-2 mt-3 text-white"
-        value={search}
+        value={search.toUpperCase()}
         onChange={e => setSearch(e.target.value)}
       />
 
-      {coinsFiltered.length === 0 ? (  <h1 className="text-center text-primary">No hay elementos</h1> ) : null}
+      {coinsFiltered.length === 0 ? (  <h2 className="text-center text-danger h1">No hay elementos</h2> ) 
 
-      <TableCoins
-        coins={coinsFiltered}
-      />
+      : 
+        <TableCoins
+           coins={coinsFiltered}
+        />
+      }
+
+     
+      
     </div>
   );
 }
