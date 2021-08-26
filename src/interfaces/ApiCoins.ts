@@ -41,3 +41,8 @@ export enum Currency {
   Eth = "eth",
   Usd = "usd",
 }
+
+export interface Icoins {
+  name: string;
+  symbol: string;
+}

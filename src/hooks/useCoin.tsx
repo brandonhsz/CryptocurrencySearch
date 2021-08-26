@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
-interface Icoins {
-  name: string;
-  symbol: string;
-}
+import { Icoins } from "../interfaces/ApiCoins";
 
 const useCoin = () => {
   const [coins, setCoins] = useState<Icoins[]>([]);
